@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <style>
+    </style>
+</head>
+
+<body>
+    <!-- <button id="changeColor"></button> -->
+    <form id='autofill'>
+        <label for="month">月份</label>
+        <input id="month" type="number" name="month" min="1" max="12" required />
+        <br />
+        <label for="days">日期(請用逗號 「,」 分隔')</label>
+        <input id="days" type="text" name="days" placeholder="1,2,3,4,5,6,7,8,9" required />
+        <label for="totalHours">總時數</label>
+        <input id="totalHours" type="number" name="totalHours" value="63" placeholder="63" required />
+        <br />
+        <label for="planNo">「助理登錄系統」序號</label>
+        <input id="planNo" type="text" name="planNo" placeholder="158903" required />
+        <br />
+        <label for="period">時段</label>
+        <select id="period" name="period" required>
+            <option value="all" selected>全天</option>
+            <option value="morning">上午</option>
+            <option value="afternoon">下午</option>
+        </select>
+        <br />
+        <br/>
+        <input type="submit" value="送出" />
+    </form>
+    <script src="popup.js"></script>
+</body>
+
+</html>
