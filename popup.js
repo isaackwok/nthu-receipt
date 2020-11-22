@@ -46,5 +46,6 @@ function submit(e) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById('month').value = String(new Date().getMonth()).padStart(2,0)
   document.getElementById('autofill').addEventListener("submit", submit);
 });
