@@ -4,6 +4,10 @@
 <head>
     <meta charset="UTF-8" />
     <style>
+        label::before {
+            content: '*';
+            color: red
+        }
     </style>
 </head>
 
@@ -11,7 +15,20 @@
     <!-- <button id="changeColor"></button> -->
     <form id='autofill'>
         <label for="month">月份</label>
-        <input id="month" type="number" name="month" min="1" max="12" required />
+        <select id="month" name="month" required>
+            <option value="01">1</option>
+            <option value="02">2</option>
+            <option value="03">3</option>
+            <option value="04">4</option>
+            <option value="05">5</option>
+            <option value="06">6</option>
+            <option value="07">7</option>
+            <option value="08">8</option>
+            <option value="09">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+        </select>
         <br />
         <label for="days">日期(請用逗號 「,」 分隔')</label>
         <input id="days" type="text" name="days" placeholder="1,2,3,4,5,6,7,8,9" required />
