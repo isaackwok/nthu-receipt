@@ -3,8 +3,9 @@ function submit(e) {
   e.preventDefault();
   let form = e.target;
   let days = form.days.value.trim().split(',');
+  let workingTime = form.period.value === 'all' ? 8 : 4;
   let totalHours = parseInt(form.totalHours.value);
-  if (totalHours / days.length > 8) {
+  if (totalHours / days.length > workingTime) {
     alert(`你的天數不足以填滿 ${totalHours} 總時數！`)
     return;
   }
