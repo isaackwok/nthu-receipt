@@ -3,25 +3,22 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     switch (request.action) {
         case "submit":
             fillandsubmit(request);
-            sendResponse({
-                // text: window.getSelection().toString().trim()
-            });
             break;
     }
 });
 
 function fillandsubmit(data) {
-    let count = 1;
+    let count = 0;
     console.log(data);
     let { days, month, planNo, totalHours, workingTime } = data
     let today = new Date();
-
+    let hours = totalHours;
     for (let day of days) {
         for (let time of workingTime) {
-            if (totalHours <= 0){
-                return;
-            }
             setTimeout(() => {
+                if (hours <= 0){
+                    return;
+                }
                 // Get document and form in main frame
                 let mainDoc = document.getElementsByName('main')[0].contentWindow.document;
                 let insForm = mainDoc.querySelector('form#insForm');
@@ -51,11 +48,11 @@ function fillandsubmit(data) {
     
                 // Fill working hours
                 inputStartHour.value = String(time).padStart(2, 0);
-                inputEndHour.value = String(time + (totalHours >= 4 ? 4 : totalHours)).padStart(2, 0);
+                inputEndHour.value = String(time + (hours >= 4 ? 4 : hours)).padStart(2, 0);
                 console.log(time);
-                console.log(time + (totalHours >= 4 ? 4 : totalHours));
+                console.log(time + (hours >= 4 ? 4 : hours));
                 submitBtn.click();
-                totalHours -= (totalHours >= 4 ? 4 : totalHours);
+                hours -= (hours >= 4 ? 4 : hours);
 
             }, 5000 * count);
             count ++;

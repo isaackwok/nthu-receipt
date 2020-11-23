@@ -1,16 +1,15 @@
 {
-  "name": "Getting Started Example",
+  "name": "NTHU Receipt",
   "version": "1.0",
-  "description": "Build an Extension!",
-  "permissions": ["activeTab", "declarativeContent", "storage"],
+  "description": "A chrome extensions that fill the receipt form of NTHU automatically.",
+  "permissions": ["activeTab", "declarativeContent","https://www.ccxp.nthu.edu.tw/*"],
   "background": {
     "scripts": ["background.js"],
     "persistent": false
   },
   "content_scripts": [
-    { "matches": ["http://*/*", "https://*/*"], "js": ["contentScript.js"] }
+    { "matches": ["https://www.ccxp.nthu.edu.tw/*"], "js": ["contentScript.js"] }
   ],
-  "options_page": "options.html",
   "page_action": {
     "default_popup": "popup.html",
     "default_icon": {
