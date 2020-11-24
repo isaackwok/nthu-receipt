@@ -32,6 +32,10 @@ function fillandsubmit(data) {
                 let inputEndHour = mainDoc.querySelector('select[name="I_TASK_Z_TM_Hour"]');
                 let inputEndMinute = mainDoc.querySelector('select[name="I_TASK_Z_TM_Minute"]');
                 let inputPlan = mainDoc.querySelector(`input[name="I_LAB_SERIAL"][value="${planNo}"]`);
+                if (!inputPlan){
+                    alert(`找不到對應的領據序號！`);
+                    return;
+                }
                 let inputDepartment = mainDoc.querySelector(`select#I_SRV_ID`);
                 let inputWorkNote = mainDoc.querySelector(`input#I_TASK_NOTE`);
                 let submitBtn = mainDoc.querySelector('input#S_SUBMIT');
