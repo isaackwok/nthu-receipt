@@ -9,6 +9,10 @@ function submit(e) {
     alert(`你的天數不足以填滿 ${totalHours} 總時數！`)
     return;
   }
+  if (!inputPlan){
+      alert(`找不到對應的領據序號！`);
+      return;
+  }
   chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
     var activeTab = tabs[0];
     let message = {
